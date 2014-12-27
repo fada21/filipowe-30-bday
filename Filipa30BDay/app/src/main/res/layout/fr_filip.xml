@@ -14,6 +14,7 @@
     <ImageView
         android:id="@+id/img_filip_cover"
         android:src="@drawable/ic_no_img"
+        android:scaleType="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -6,11 +6,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fada21.android.filipa30bday.R;
 import com.fada21.android.filipa30bday.model.FilipCover;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -24,6 +26,7 @@ public class FilipCoverFragment extends Fragment {
     private FilipCover filipCover;
 
     private TextView tvDitty;
+    private ImageView img;
 
     public static FilipCoverFragment newInstance(FilipCover filipCover) {
         FilipCoverFragment fragment = new FilipCoverFragment();
@@ -44,13 +47,15 @@ public class FilipCoverFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fr_filip, container, false);
         tvDitty = (TextView) rootView.findViewById(R.id.text_filip_cover_ditty);
-        rootView.findViewById(R.id.img_filip_cover);
+        img = (ImageView) rootView.findViewById(R.id.img_filip_cover);
 
         FilipCover filipCover = getFilipCover(savedInstanceState);
-        // TODO init view
+
+        Picasso.with(getActivity()).load(filipCover.getUrl()).noPlaceholder().error(R.drawable.ic_no_img).into(img);
 
         tvDitty.setText(filipCover.getDitty());
         tvDitty.setOnClickListener(v -> Toast.makeText(getActivity(), "click", Toast.LENGTH_SHORT).show());
+
         return rootView;
     }
 

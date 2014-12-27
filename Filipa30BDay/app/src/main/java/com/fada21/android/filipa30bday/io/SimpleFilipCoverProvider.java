@@ -24,7 +24,7 @@ public class SimpleFilipCoverProvider implements IFilipCoverProvider {
 
     private FilipCover getSimpleFilipCover(int id) {
         new FilipCover();
-        FilipCover filipCover = new FilipCover(id, "Filip" + id, "Autor " + id, "Filip Nowakowski ma słabostki : " + id, "http" + 1);
+        FilipCover filipCover = new FilipCover(id, "Filip" + id, "Autor " + id, "Filip Nowakowski ma słabostki : " + id, "https://lh3.googleusercontent.com/ZUcR1CoYC3ZTy6cd6gBBgAoeCbRlzXIf-p5DWdnZIz9Df4WzAEZxfSLy_NE-f2usswnmNw=w1896-h850");
         return filipCover;
     }
 }

@@ -18,3 +18,6 @@
 
 # retrolambda
 -dontwarn java.lang.invoke.*
+
+# okhttp picasso
+-dontwarn com.squareup.okhttp.**

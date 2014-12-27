@@ -1,8 +1,19 @@
 {"resources":[
  {"id":"1",
-  "title":"test",
-  "author":"Autor"
-  "ditty":"test poem",
-  "url":"http://fada21.com/test/filip1"}
+  "title":"Baywatch - filipowy patrol",
+  "author":"Łukasz"
+  "ditty":"<!DOCTYPE html><html>
+Czerwone gatki, białe sznureczki<br/>To cały strój blond Pameleczki<br/>Bicepsik raz, przysiady dwa<br/>I każdy figurę trendy ma.<br/>Do wspólnej fotki Patrol pozuje<br/>I Filip tuż obok ładnie pasuje<br/>
+            <body></body></html>",
+  "url":"https://lh3.googleusercontent.com/ZUcR1CoYC3ZTy6cd6gBBgAoeCbRlzXIf-p5DWdnZIz9Df4WzAEZxfSLy_NE-f2usswnmNw=w1896-h850"},
+ {"id":"2",
+   "title":"Blady Filip - Łowca Androidów",
+   "author":"Łukasz"
+   "ditty":"
+<!DOCTYPE html><html><body>
+Predatory i terminatory nie interesują mnie<br/>Od kiedy na świecie pojawił się<br/>Łowca androidów lepszy niż we śnie.<br/>Roboty powybija jak piankę się ubija - <br/>Gładko, szybko i bez owiec<br/>Tak działa nasz Filipek - rewolwerowiec<br/>
+</body></html>",
+   "url":"https://lh6.googleusercontent.com/crprG65AaWJjHq_FcKpV65dcJ8rUEi214lkxhMW-_C-cf6Ti6vXpB12afymDhigCCD8hyw"},
+
   ]
  }

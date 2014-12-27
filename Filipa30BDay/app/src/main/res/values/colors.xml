@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- http://paletton.com/#uid=70o0n0kllllsG6ap0dLhFsVd+Iw -->
+    <color name="colorAccent">#72CAB9</color>
+    <color name="colorPrimary">#6E3A18</color>
+    <color name="colorPrimaryDark">#311605</color>
+    <color name="windowBackground">#E69967</color>
+</resources>
