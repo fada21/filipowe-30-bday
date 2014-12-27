@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/pager_page_padding"
+    android:orientation="vertical"
+    tools:context=".fragments.FilipPicFragment">
+
+    <TextView
+        android:id="@+id/text_filip_cover_ditty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/img_filip_cover"
+        android:src="@drawable/ic_no_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
