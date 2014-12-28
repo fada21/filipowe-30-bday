@@ -14,7 +14,7 @@ public class SimpleFilipCoverProvider implements IFilipCoverProvider {
     }
 
     @Override
-    public List<FilipCover> getFilipPicsList() {
+    public List<FilipCover> getFilipCoverList() {
         ArrayList<FilipCover> filipPicsList = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
             filipPicsList.add(getSimpleFilipCover(i));

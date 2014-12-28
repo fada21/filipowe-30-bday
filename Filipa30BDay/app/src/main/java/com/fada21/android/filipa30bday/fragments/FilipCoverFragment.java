@@ -2,6 +2,7 @@ package com.fada21.android.filipa30bday.fragments;
 
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,12 +52,18 @@ public class FilipCoverFragment extends Fragment {
 
         FilipCover filipCover = getFilipCover(savedInstanceState);
 
-        Picasso.with(getActivity()).load(filipCover.getUrl()).noPlaceholder().error(R.drawable.ic_no_img).into(img);
 
         tvDitty.setText(filipCover.getDitty());
         tvDitty.setOnClickListener(v -> Toast.makeText(getActivity(), "click", Toast.LENGTH_SHORT).show());
 
         return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Picasso.with(getActivity()).load(filipCover.getUrl()).noPlaceholder().error(R.drawable.ic_no_img).fit().centerInside().into(img);
+
     }
 
     private FilipCover getFilipCover(Bundle savedInstanceState) {

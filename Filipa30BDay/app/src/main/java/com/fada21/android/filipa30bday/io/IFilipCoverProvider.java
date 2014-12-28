@@ -5,5 +5,5 @@ import com.fada21.android.filipa30bday.model.FilipCover;
 import java.util.List;
 
 public interface IFilipCoverProvider {
-    List<FilipCover> getFilipPicsList();
+    List<FilipCover> getFilipCoverList();
 }

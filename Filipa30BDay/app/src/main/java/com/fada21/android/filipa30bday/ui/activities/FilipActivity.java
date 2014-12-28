@@ -8,7 +8,9 @@ import android.view.MenuItem;
 
 import com.fada21.android.filipa30bday.R;
 import com.fada21.android.filipa30bday.adapters.FilipPicsPagerAdapter;
-import com.fada21.android.filipa30bday.io.SimpleFilipCoverProvider;
+import com.fada21.android.filipa30bday.io.IFilipCoverProvider;
+import com.fada21.android.filipa30bday.io.LocalFilipCoverProvider;
+import com.fada21.android.filipa30bday.ui.view.ZoomOutPageTransformer;
 
 
 public class FilipActivity extends ActionBarActivity {
@@ -23,15 +25,15 @@ public class FilipActivity extends ActionBarActivity {
         setContentView(R.layout.ac_main);
 
         pagerAdapter = new FilipPicsPagerAdapter(getSupportFragmentManager());
-        pagerAdapter.setData(SimpleFilipCoverProvider.createProvider().getFilipPicsList());
-
-        final float pagerPageMargin = getResources().getDimension(R.dimen.pager_page_margin);
+        IFilipCoverProvider provider = LocalFilipCoverProvider.createProvider(this);
+        pagerAdapter.setData(provider.getFilipCoverList());
 
         viewPager = (ViewPager) findViewById(R.id.pager);
-        viewPager.setPageMargin((int) (pagerPageMargin * -1f));
+        //final float pagerPageMargin = getResources().getDimension(R.dimen.pager_page_margin);
+        //viewPager.setPageMargin((int) (pagerPageMargin * -1f));
         viewPager.setClipChildren(false);
         viewPager.setOffscreenPageLimit(2);
-        //viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         viewPager.setAdapter(pagerAdapter);
     }
 
