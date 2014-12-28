@@ -4,10 +4,12 @@
     tools:context=".FilipActivity">
     <item
         android:id="@+id/action_share"
+        android:icon="@drawable/ic_action_share"
         android:title="@string/action_share"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_full_screen"
+        android:icon="@drawable/ic_action_fullscreen"
         android:title="@string/action_full_screen"
         app:showAsAction="always" />
 </menu>

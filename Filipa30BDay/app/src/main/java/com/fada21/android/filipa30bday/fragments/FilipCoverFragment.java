@@ -1,9 +1,15 @@
 package com.fada21.android.filipa30bday.fragments;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ValueAnimator;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.graphics.Palette;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +19,7 @@ import android.widget.Toast;
 
 import com.fada21.android.filipa30bday.R;
 import com.fada21.android.filipa30bday.model.FilipCover;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -62,8 +69,27 @@ public class FilipCoverFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Picasso.with(getActivity()).load(filipCover.getUrl()).noPlaceholder().error(R.drawable.ic_no_img).fit().centerInside().into(img);
+        Picasso.with(getActivity()).load(filipCover.getUrl()).noPlaceholder().error(R.drawable.ic_no_img).fit().centerInside().into(img, new Callback.EmptyCallback() {
 
+            @Override
+            public void onSuccess() {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                    Bitmap bitmap = ((BitmapDrawable) img.getDrawable()).getBitmap();
+                    Palette.generateAsync(bitmap, palette -> {
+                        Integer colorFrom = getResources().getColor(R.color.colorPrimaryDark);
+                        Integer colorTo = palette.getDarkMutedColor(R.color.colorPrimary);
+                        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
+                        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                            @Override
+                            public void onAnimationUpdate(ValueAnimator animator) {
+                                // update ditty text and apla
+                            }
+                        });
+                        colorAnimation.start();
+                    });
+                }
+            }
+        });
     }
 
     private FilipCover getFilipCover(Bundle savedInstanceState) {
