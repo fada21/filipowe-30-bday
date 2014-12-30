@@ -39,7 +39,6 @@ ext {
     supportVersion = "21.0.3"
     parcelerVersion = "0.2.15"
     jacksonVersion = "2.4.4"
-    okhttpVersion = "2.1.0"
 }
 
 dependencies {
@@ -55,8 +54,6 @@ dependencies {
     compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
     compile "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
 
-    compile "com.squareup.okhttp:okhttp-urlconnection:${okhttpVersion}"
-    compile "com.squareup.okhttp:okhttp:${okhttpVersion}"
     compile 'com.squareup.picasso:picasso:2.4.0'
 
     compile 'io.reactivex:rxandroid:0.23.0'

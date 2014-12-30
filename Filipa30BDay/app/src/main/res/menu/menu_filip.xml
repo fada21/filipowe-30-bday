@@ -11,5 +11,6 @@
         android:id="@+id/action_full_screen"
         android:icon="@drawable/ic_action_fullscreen"
         android:title="@string/action_full_screen"
+        android:visible="false"
         app:showAsAction="always" />
 </menu>

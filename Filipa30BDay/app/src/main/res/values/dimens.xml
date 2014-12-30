@@ -6,4 +6,6 @@
     <dimen name="pager_tab_strip_padding">4dp</dimen>
     <dimen name="pager_page_margin">24dp</dimen>
     <dimen name="pager_page_padding">16dp</dimen>
+
+    <dimen name="ditty_padding">16dp</dimen>
 </resources>
