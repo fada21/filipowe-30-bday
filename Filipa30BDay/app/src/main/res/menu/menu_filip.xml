@@ -15,8 +15,8 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/action_toggle_ditty"
-        android:icon="@drawable/ic_action_show_ditty_on"
-        android:title="@string/action_full_screen"
+        android:icon="@drawable/ic_action_show_ditty_toggle"
+        android:title="@string/action_show_ditty_on"
         android:visible="false"
         app:showAsAction="always" />
 </menu>

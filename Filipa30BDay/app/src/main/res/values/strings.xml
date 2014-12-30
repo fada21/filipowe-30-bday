@@ -5,7 +5,7 @@
 
     <string name="action_share">Share</string>
     <string name="action_full_screen">Full screen</string>
-    <string name="action_show_ditty_on">Show ditties</string>
-    <string name="action_show_ditty_off">Hide ditties</string>
+    <string name="action_show_ditty_on">Show ditty</string>
+    <string name="action_show_ditty_off">Hide ditty</string>
 
 </resources>
