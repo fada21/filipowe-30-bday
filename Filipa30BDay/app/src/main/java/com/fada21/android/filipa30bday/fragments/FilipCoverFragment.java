@@ -17,10 +17,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fada21.android.filipa30bday.FilipApp;
 import com.fada21.android.filipa30bday.R;
 import com.fada21.android.filipa30bday.model.FilipCover;
 import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -69,7 +69,8 @@ public class FilipCoverFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Picasso.with(getActivity()).load(filipCover.getUrl()).noPlaceholder().error(R.drawable.ic_no_img).fit().centerInside().into(img, new Callback.EmptyCallback() {
+
+        FilipApp.getInstance().getPicasso().load(filipCover.getUrl()).noPlaceholder().error(R.drawable.ic_no_img).fit().centerInside().into(img, new Callback.EmptyCallback() {
 
             @Override
             public void onSuccess() {
@@ -82,7 +83,7 @@ public class FilipCoverFragment extends Fragment {
                         colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                             @Override
                             public void onAnimationUpdate(ValueAnimator animator) {
-                                // update ditty text and apla
+                                // TODO update ditty text and apla
                             }
                         });
                         colorAnimation.start();
