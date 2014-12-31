@@ -67,8 +67,7 @@ public class FilipActivity extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.menu_filip, menu);
 
         MenuItem showDitty = menu.findItem(R.id.action_toggle_ditty);
-        dittyIconDrawable = showDitty.getIcon();
-        dittyHelper = new DittyHelper(this, dittyIconDrawable);
+        dittyHelper = new DittyHelper(this, showDitty);
 
         return super.onCreateOptionsMenu(menu);
     }
@@ -76,7 +75,7 @@ public class FilipActivity extends ActionBarActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        dittyHelper.setShowDittyIconLevel();
+        dittyHelper.setupActionBar();
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -117,7 +116,7 @@ public class FilipActivity extends ActionBarActivity {
 
     public void onEventMainThread(EventShowDittyToggle ev) {
         boolean doShowDitty = dittyHelper.toggleShowDitty();
-        dittyHelper.setShowDittyIconLevel();
+        dittyHelper.setupActionBar();
         EventBus.getDefault().post(new EventShowDittyOnToggled(doShowDitty));
     }
 }

@@ -1,33 +1,60 @@
 package com.fada21.android.filipa30bday.io.helpers;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.view.MenuItem;
 
+import com.fada21.android.filipa30bday.R;
+
+import lombok.Getter;
 import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
-@RequiredArgsConstructor(suppressConstructorProperties = true)
 public class DittyHelper {
+
+    public static final int SHOW_DITTY_LEVEL_ON = 0;
+    public static final int SHOW_DITTY_LEVEL_OFF = 1;
+
     @NonNull
     private final Context context;
     @NonNull
-    private final Drawable dittyDrawable;
+    private final MenuItem menuItem;
+
+    @Getter
+    @Setter
+    private boolean doShowDitty;
+
+    public DittyHelper(Context context, MenuItem menuItem) {
+        this.context = context;
+        this.menuItem = menuItem;
+        doShowDitty = DittyStaticHelper.doShowDitties(context);
+    }
 
     public boolean doShowDitties() {
-        return DittyStaticHelper.doShowDitties(context);
+        return doShowDitty;
     }
 
     public void setShowDitties(boolean doShowDitties) {
         DittyStaticHelper.setShowDitties(context, doShowDitties);
+        setDoShowDitty(doShowDitties);
     }
 
     public boolean toggleShowDitty() {
-        return DittyStaticHelper.toggleShowDitty(context);
+        setDoShowDitty(DittyStaticHelper.toggleShowDitty(context));
+        return doShowDitties();
     }
 
-    public void setShowDittyIconLevel() {
-        DittyStaticHelper.setShowDittyIconLevel(dittyDrawable, doShowDitties());
+    /**
+     * Do on UI thread.
+     */
+    public void setupActionBar() {
+        boolean doShowDitties = doShowDitties();
+        if (doShowDitties) {
+            menuItem.setTitle(context.getString(R.string.action_show_ditty_off));
+            menuItem.getIcon().setLevel(SHOW_DITTY_LEVEL_OFF);
+        } else {
+            menuItem.setTitle(context.getString(R.string.action_show_ditty_on));
+            menuItem.getIcon().setLevel(SHOW_DITTY_LEVEL_ON);
+        }
     }
-
 
 }
