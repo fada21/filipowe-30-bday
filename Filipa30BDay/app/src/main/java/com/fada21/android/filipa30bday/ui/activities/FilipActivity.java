@@ -3,19 +3,25 @@ package com.fada21.android.filipa30bday.ui.activities;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.ShareActionProvider;
+import android.text.Html;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.fada21.android.filipa30bday.R;
 import com.fada21.android.filipa30bday.adapters.FilipPicsPagerAdapter;
+import com.fada21.android.filipa30bday.events.EventShowDittyToggle;
 import com.fada21.android.filipa30bday.io.IFilipCoverProvider;
 import com.fada21.android.filipa30bday.io.LocalFilipCoverProvider;
 import com.fada21.android.filipa30bday.io.helpers.DittyHelper;
+import com.fada21.android.filipa30bday.model.FilipCover;
 import com.fada21.android.filipa30bday.ui.view.ZoomOutPageTransformer;
+
+import org.apache.http.protocol.HTTP;
+
+import de.greenrobot.event.EventBus;
 
 
 public class FilipActivity extends ActionBarActivity {
@@ -24,7 +30,6 @@ public class FilipActivity extends ActionBarActivity {
     private ViewPager viewPager;
     private Drawable dittyIconDrawable;
     private DittyHelper dittyHelper;
-    private ShareActionProvider shareActionProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +57,6 @@ public class FilipActivity extends ActionBarActivity {
         dittyIconDrawable = showDitty.getIcon();
         dittyHelper = new DittyHelper(this, dittyIconDrawable);
 
-        MenuItem shareItem = menu.findItem(R.id.action_share);
-        shareActionProvider = (ShareActionProvider)
-                MenuItemCompat.getActionProvider(shareItem);
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -70,13 +71,14 @@ public class FilipActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_share:
-                shareActionProvider.setShareIntent(getShareIntent());
+                startActivity(getShareIntent());
                 return true;
             case R.id.action_full_screen:
                 return true;
             case R.id.action_toggle_ditty:
-                dittyHelper.toggleShowDitty();
+                boolean doShowDitty = dittyHelper.toggleShowDitty();
                 dittyHelper.setShowDittyIconLevel();
+                EventBus.getDefault().post(new EventShowDittyToggle(doShowDitty));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -84,6 +86,21 @@ public class FilipActivity extends ActionBarActivity {
     }
 
     private Intent getShareIntent() {
-        return null;
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType(HTTP.PLAIN_TEXT_TYPE);
+        FilipCover filipCover = pagerAdapter.getDataItem(viewPager.getCurrentItem());
+        intent.putExtra(Intent.EXTRA_SUBJECT, filipCover.getTitle());
+        intent.putExtra(Intent.EXTRA_TEXT, filipCover2ShareText(filipCover));
+        return intent;
+    }
+
+    private String filipCover2ShareText(FilipCover filipCover) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(filipCover.getTitle()).append(" - ").append(filipCover.getUrl());
+        String ditty = filipCover.getDitty();
+        if (!TextUtils.isEmpty(ditty)) {
+            sb.append("\n\n").append(Html.fromHtml(ditty).toString());
+        }
+        return sb.toString();
     }
 }

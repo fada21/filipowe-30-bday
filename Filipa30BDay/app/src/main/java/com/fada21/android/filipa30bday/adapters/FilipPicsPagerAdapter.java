@@ -46,7 +46,7 @@ public class FilipPicsPagerAdapter extends FragmentPagerAdapter {
         }
     }
 
-    private FilipCover getDataItem(int position) {
+    public FilipCover getDataItem(int position) {
         if (CommonUtils.isCollectionEmpty(data)) {
             return null;
         } else {

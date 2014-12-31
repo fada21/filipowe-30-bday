@@ -56,7 +56,9 @@ dependencies {
 
     compile 'com.squareup.picasso:picasso:2.4.0'
 
-    compile 'io.reactivex:rxandroid:0.23.0'
+    compile 'de.greenrobot:eventbus:2.4.0'
+
+    //compile 'io.reactivex:rxandroid:0.23.0'
 
     retrolambdaConfig 'net.orfjackal.retrolambda:retrolambda:1.8.0'
 }

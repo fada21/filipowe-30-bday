@@ -5,6 +5,7 @@ import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
@@ -22,16 +23,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fada21.android.filipa30bday.FilipApp;
 import com.fada21.android.filipa30bday.R;
+import com.fada21.android.filipa30bday.events.EventShowDittyToggle;
 import com.fada21.android.filipa30bday.io.helpers.DittyStaticHelper;
 import com.fada21.android.filipa30bday.model.FilipCover;
 import com.squareup.picasso.Callback;
 
 import org.parceler.Parcels;
 
+import de.greenrobot.event.EventBus;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
@@ -42,9 +44,10 @@ public class FilipCoverFragment extends Fragment {
 
     private FilipCover filipCover;
 
+    private volatile boolean detached;
+    private Context ctx;
     private TextView tvDitty;
     private ImageView img;
-    private boolean detached;
 
     public static FilipCoverFragment newInstance(FilipCover filipCover) {
         FilipCoverFragment fragment = new FilipCoverFragment();
@@ -67,8 +70,9 @@ public class FilipCoverFragment extends Fragment {
         tvDitty = (TextView) rootView.findViewById(R.id.text_filip_cover_ditty);
         img = (ImageView) rootView.findViewById(R.id.img_filip_cover);
 
-        FilipCover filipCover = getFilipCover(savedInstanceState);
+        getFilipCover(savedInstanceState);
 
+        setupDitty(DittyStaticHelper.doShowDitties(ctx));
         String ditty = filipCover.getDitty();
         if (DittyStaticHelper.doShowDitties(getActivity()) && !TextUtils.isEmpty(ditty)) {
             tvDitty.setVisibility(View.VISIBLE);
@@ -77,9 +81,25 @@ public class FilipCoverFragment extends Fragment {
             tvDitty.setVisibility(View.GONE);
         }
 
-        tvDitty.setOnClickListener(v -> Toast.makeText(getActivity(), "click", Toast.LENGTH_SHORT).show());
 
         return rootView;
+    }
+
+    private void setupDitty(boolean dittyToBeShown) {
+        if (!detached) {
+            String ditty = filipCover.getDitty();
+            if (!TextUtils.isEmpty(ditty)) {
+                tvDitty.setText(Html.fromHtml(ditty));
+                if (dittyToBeShown) {
+                    tvDitty.setVisibility(View.VISIBLE);
+                    tvDitty.setOnClickListener(v -> {
+                        if (!detached) DittyStaticHelper.toggleShowDitty(getActivity());
+                    });
+                } else {
+                    tvDitty.setVisibility(View.GONE);
+                }
+            }
+        }
     }
 
     @Override
@@ -98,30 +118,34 @@ public class FilipCoverFragment extends Fragment {
                 if (!detached && Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                     Bitmap bitmap = ((BitmapDrawable) img.getDrawable()).getBitmap();
                     Palette.generateAsync(bitmap, palette -> {
-                        Integer colorFromBg = getResources().getColor(R.color.colorPrimaryDarkAlpha);
-                        Integer colorToBg = palette.getDarkMutedColor(R.color.colorPrimaryDark);
-                        colorToBg &= ALPHA_FILTER;
-                        Integer colorFromText = getResources().getColor(android.R.color.white);
-                        Integer colorToText = palette.getLightVibrantColor(android.R.color.white);
-                        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFromBg, colorToBg);
-                        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                            @Override
-                            public void onAnimationUpdate(ValueAnimator animator) {
-                                tvDitty.getBackground().setColorFilter(new PorterDuffColorFilter((Integer) animator.getAnimatedValue(), PorterDuff.Mode.DST_OVER));
-                            }
-                        });
-                        ValueAnimator colorTextAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFromText, colorToText);
-                        colorTextAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                            @Override
-                            public void onAnimationUpdate(ValueAnimator animator) {
-                                tvDitty.setTextColor((Integer) animator.getAnimatedValue());
-                            }
-                        });
+
+                        ValueAnimator colorAnimationForDittyText = getValueAnimatorForDittyText(palette);
+                        ValueAnimator colorAnimationForDittyApla = getValueAnimatorForDittyApla(palette);
+
                         AnimatorSet set = new AnimatorSet();
-                        set.playTogether(colorTextAnimation, colorAnimation);
+                        set.playTogether(colorAnimationForDittyText, colorAnimationForDittyApla);
                         set.start();
                     });
                 }
+            }
+
+            @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+            private ValueAnimator getValueAnimatorForDittyText(Palette palette) {
+                Integer colorFromText = getResources().getColor(android.R.color.white);
+                Integer colorToText = palette.getLightVibrantColor(android.R.color.white);
+                ValueAnimator colorTextAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFromText, colorToText);
+                colorTextAnimation.addUpdateListener(animator -> tvDitty.setTextColor((Integer) animator.getAnimatedValue()));
+                return colorTextAnimation;
+            }
+
+            @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+            private ValueAnimator getValueAnimatorForDittyApla(Palette palette) {
+                Integer colorFromBg = getResources().getColor(R.color.colorPrimaryDarkAlpha);
+                Integer colorToBg = palette.getDarkMutedColor(R.color.colorPrimaryDark);
+                colorToBg &= ALPHA_FILTER;
+                ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFromBg, colorToBg);
+                colorAnimation.addUpdateListener(animator -> tvDitty.getBackground().setColorFilter(new PorterDuffColorFilter((Integer) animator.getAnimatedValue(), PorterDuff.Mode.DST_OVER)));
+                return colorAnimation;
             }
         };
         return emptyCallback;
@@ -150,11 +174,29 @@ public class FilipCoverFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         detached = false;
+        ctx = activity;
     }
 
     @Override
     public void onDetach() {
         detached = true;
+        ctx = null;
         super.onDetach();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+    public void onEventMainThread(EventShowDittyToggle ev) {
+        setupDitty(ev.isDittyToBeShown());
     }
 }
