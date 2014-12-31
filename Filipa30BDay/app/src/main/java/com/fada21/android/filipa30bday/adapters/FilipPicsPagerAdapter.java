@@ -2,15 +2,17 @@ package com.fada21.android.filipa30bday.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.fada21.android.filipa30bday.FilipApp;
+import com.fada21.android.filipa30bday.R;
 import com.fada21.android.filipa30bday.fragments.FilipCoverFragment;
 import com.fada21.android.filipa30bday.model.FilipCover;
 import com.fada21.android.filipa30bday.utils.CommonUtils;
 
 import java.util.List;
 
-public class FilipPicsPagerAdapter extends FragmentPagerAdapter {
+public class FilipPicsPagerAdapter extends FragmentStatePagerAdapter {
 
     private List<FilipCover> data;
 
@@ -40,7 +42,7 @@ public class FilipPicsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         if (CommonUtils.isCollectionEmpty(data)) {
-            return "No data!"; // TODO to res
+            return FilipApp.getInstance().getString(R.string.error_no_data);
         } else {
             return getDataItem(position).getTitle();
         }

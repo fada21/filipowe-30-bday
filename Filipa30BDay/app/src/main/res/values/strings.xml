@@ -11,6 +11,8 @@
 
     <string name="share_wishes">Filip made it to his thirties. Great success! Let\'s endorse one of his best performances in =%s=</string>
 
-    <string name="ditty_author_label">by %s</string>
+    <string name="ditty_author_label">Image by %s</string>
+
+    <string name="error_no_data">No data :(</string>
 
 </resources>

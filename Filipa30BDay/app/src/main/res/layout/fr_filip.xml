@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:padding="@dimen/pager_page_padding"
     tools:context="ui.activities.FilipActivity">
 
@@ -27,7 +28,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/bg_ditty"
-            android:clickable="false"
             android:gravity="start"
             android:padding="@dimen/ditty_padding"
             android:textColor="@android:color/white"
@@ -48,8 +48,12 @@ Tak działa nasz Filipek - rewolwerowiec" />
         android:layout_gravity="bottom|right"
         android:layout_margin="@dimen/pager_page_margin"
         android:background="@drawable/bg_ditty"
-        android:padding="@dimen/ditty_padding"
+        android:paddingBottom="@dimen/author_vert_padding"
+        android:paddingLeft="@dimen/author_horiz_padding"
+        android:paddingRight="@dimen/author_horiz_padding"
+        android:paddingTop="@dimen/author_vert_padding"
         android:textColor="@android:color/white"
+        android:visibility="gone"
         tools:text="by Kasia" />
 
 </FrameLayout>

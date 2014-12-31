@@ -1,7 +1,6 @@
 package com.fada21.android.filipa30bday.ui.activities;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -22,26 +21,28 @@ import com.fada21.android.filipa30bday.ui.view.ZoomOutPageTransformer;
 
 import org.apache.http.protocol.HTTP;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import de.greenrobot.event.EventBus;
 
 
 public class FilipActivity extends ActionBarActivity {
 
     private FilipPicsPagerAdapter pagerAdapter;
-    private ViewPager viewPager;
-    private Drawable dittyIconDrawable;
+    @InjectView(R.id.pager)
+    ViewPager viewPager;
     private DittyHelper dittyHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ac_main);
+        ButterKnife.inject(this);
 
         pagerAdapter = new FilipPicsPagerAdapter(getSupportFragmentManager());
         IFilipCoverProvider provider = LocalFilipCoverProvider.createProvider(this);
         pagerAdapter.setData(provider.getFilipCoverList());
 
-        viewPager = (ViewPager) findViewById(R.id.pager);
         //final float pagerPageMargin = getResources().getDimension(R.dimen.pager_page_margin);
         //viewPager.setPageMargin((int) (pagerPageMargin * -1f));
         viewPager.setClipChildren(false);
