@@ -13,7 +13,8 @@
         android:icon="@drawable/ic_action_share"
         android:orderInCategory="20"
         android:title="@string/action_share"
-        app:showAsAction="ifRoom" />
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_full_screen"
         android:icon="@drawable/ic_action_fullscreen"
