@@ -26,6 +26,7 @@ import android.widget.TextView;
 
 import com.fada21.android.filipa30bday.FilipApp;
 import com.fada21.android.filipa30bday.R;
+import com.fada21.android.filipa30bday.events.EventShowDittyOnToggled;
 import com.fada21.android.filipa30bday.events.EventShowDittyToggle;
 import com.fada21.android.filipa30bday.io.helpers.DittyStaticHelper;
 import com.fada21.android.filipa30bday.model.FilipCover;
@@ -70,7 +71,7 @@ public class FilipCoverFragment extends Fragment {
         tvDitty = (TextView) rootView.findViewById(R.id.text_filip_cover_ditty);
         img = (ImageView) rootView.findViewById(R.id.img_filip_cover);
 
-        getFilipCover(savedInstanceState);
+        initFilipCover(savedInstanceState);
 
         setupDitty(DittyStaticHelper.doShowDitties(ctx));
         String ditty = filipCover.getDitty();
@@ -85,6 +86,25 @@ public class FilipCoverFragment extends Fragment {
         return rootView;
     }
 
+    private FilipCover initFilipCover(Bundle savedInstanceState) {
+        if (filipCover == null) {
+            if (savedInstanceState != null) {
+                Parcelable fpp = savedInstanceState.getParcelable(ARG_FILIP_COVER);
+                if (fpp != null) {
+                    filipCover = Parcels.unwrap(fpp);
+                }
+            }
+            if (filipCover == null) {
+                Bundle arguments = getArguments();
+                if (arguments != null) {
+                    Parcelable parcelable = arguments.getParcelable(ARG_FILIP_COVER);
+                    filipCover = Parcels.unwrap(parcelable);
+                }
+            }
+        }
+        return filipCover;
+    }
+
     private void setupDitty(boolean dittyToBeShown) {
         if (!detached) {
             String ditty = filipCover.getDitty();
@@ -93,7 +113,7 @@ public class FilipCoverFragment extends Fragment {
                 if (dittyToBeShown) {
                     tvDitty.setVisibility(View.VISIBLE);
                     tvDitty.setOnClickListener(v -> {
-                        if (!detached) DittyStaticHelper.toggleShowDitty(getActivity());
+                        if (!detached) EventBus.getDefault().post(new EventShowDittyToggle());
                     });
                 } else {
                     tvDitty.setVisibility(View.GONE);
@@ -151,25 +171,6 @@ public class FilipCoverFragment extends Fragment {
         return emptyCallback;
     }
 
-    private FilipCover getFilipCover(Bundle savedInstanceState) {
-        if (filipCover == null) {
-            if (savedInstanceState != null) {
-                Parcelable fpp = savedInstanceState.getParcelable(ARG_FILIP_COVER);
-                if (fpp != null) {
-                    filipCover = Parcels.unwrap(fpp);
-                }
-            }
-            if (filipCover == null) {
-                Bundle arguments = getArguments();
-                if (arguments != null) {
-                    Parcelable parcelable = arguments.getParcelable(ARG_FILIP_COVER);
-                    filipCover = Parcels.unwrap(parcelable);
-                }
-            }
-        }
-        return filipCover;
-    }
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -179,8 +180,10 @@ public class FilipCoverFragment extends Fragment {
 
     @Override
     public void onDetach() {
-        detached = true;
-        ctx = null;
+        synchronized (this) {
+            detached = true;
+            ctx = null;
+        }
         super.onDetach();
     }
 
@@ -196,7 +199,7 @@ public class FilipCoverFragment extends Fragment {
         super.onStop();
     }
 
-    public void onEventMainThread(EventShowDittyToggle ev) {
+    public void onEventMainThread(EventShowDittyOnToggled ev) {
         setupDitty(ev.isDittyToBeShown());
     }
 }

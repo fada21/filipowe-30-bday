@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-       <bitmap android:src="@drawable/ic_action_show_ditty_on"/>
+        <bitmap android:src="@drawable/ic_action_show_ditty_on" />
     </item>
-    <item android:drawable="@drawable/ic_action_show_ditty_off_ring"/>
-    <item>
-        <bitmap android:src="@drawable/ic_action_show_ditty_off_cross"/>
-    </item>
+    <item android:drawable="@drawable/ic_action_show_ditty_off_ring" />
+    <item
+        android:bottom="@dimen/ditty_shape_thickness"
+        android:drawable="@drawable/ic_action_show_ditty_off_rotate"
+        android:left="@dimen/ditty_shape_thickness"
+        android:right="@dimen/ditty_shape_thickness"
+        android:top="@dimen/ditty_shape_thickness" />
 </layer-list>

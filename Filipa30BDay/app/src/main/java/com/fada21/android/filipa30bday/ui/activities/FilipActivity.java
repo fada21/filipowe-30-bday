@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import com.fada21.android.filipa30bday.R;
 import com.fada21.android.filipa30bday.adapters.FilipPicsPagerAdapter;
+import com.fada21.android.filipa30bday.events.EventShowDittyOnToggled;
 import com.fada21.android.filipa30bday.events.EventShowDittyToggle;
 import com.fada21.android.filipa30bday.io.IFilipCoverProvider;
 import com.fada21.android.filipa30bday.io.LocalFilipCoverProvider;
@@ -50,6 +51,18 @@ public class FilipActivity extends ActionBarActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_filip, menu);
 
@@ -76,9 +89,7 @@ public class FilipActivity extends ActionBarActivity {
             case R.id.action_full_screen:
                 return true;
             case R.id.action_toggle_ditty:
-                boolean doShowDitty = dittyHelper.toggleShowDitty();
-                dittyHelper.setShowDittyIconLevel();
-                EventBus.getDefault().post(new EventShowDittyToggle(doShowDitty));
+                EventBus.getDefault().post(new EventShowDittyToggle());
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -89,7 +100,7 @@ public class FilipActivity extends ActionBarActivity {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType(HTTP.PLAIN_TEXT_TYPE);
         FilipCover filipCover = pagerAdapter.getDataItem(viewPager.getCurrentItem());
-        intent.putExtra(Intent.EXTRA_SUBJECT, filipCover.getTitle());
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_wishes, filipCover.getTitle()));
         intent.putExtra(Intent.EXTRA_TEXT, filipCover2ShareText(filipCover));
         return intent;
     }
@@ -102,5 +113,11 @@ public class FilipActivity extends ActionBarActivity {
             sb.append("\n\n").append(Html.fromHtml(ditty).toString());
         }
         return sb.toString();
+    }
+
+    public void onEventMainThread(EventShowDittyToggle ev) {
+        boolean doShowDitty = dittyHelper.toggleShowDitty();
+        dittyHelper.setShowDittyIconLevel();
+        EventBus.getDefault().post(new EventShowDittyOnToggled(doShowDitty));
     }
 }

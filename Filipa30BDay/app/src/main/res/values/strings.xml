@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Filipowe 30 urodziny!</string>
+    <string name="app_name">Filip\'s 30th BDay!</string>
 
     <string name="action_share">Share</string>
     <string name="action_full_screen">Full screen</string>
     <string name="action_show_ditty_on">Show ditty</string>
     <string name="action_show_ditty_off">Hide ditty</string>
+
+    <string name="share_wishes">Filip made it to his thirties. Great success! Let\'s endorse one of his best performances in =%s=</string>
 
 </resources>

@@ -7,5 +7,6 @@
     <dimen name="pager_page_margin">24dp</dimen>
     <dimen name="pager_page_padding">16dp</dimen>
 
+    <dimen name="ditty_shape_thickness">3dp</dimen>
     <dimen name="ditty_padding">16dp</dimen>
 </resources>

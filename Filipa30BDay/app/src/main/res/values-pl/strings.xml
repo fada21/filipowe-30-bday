@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Filipowe 30 urodziny!</string>
+    <string name="action_share">Wyszeruj</string>
+    <string name="action_full_screen">Cały ekran</string>
+    <string name="action_show_ditty_on">Pokaż wierszyk</string>
+    <string name="action_show_ditty_off">Schowaj wierszyk</string>
+
+    <string name="share_wishes">Filip ma 30 lat! Warto wspomnieć jego sukcesy. Pamiętam jak wczoraj jego udział w =%s=</string>
+
+
+</resources>
