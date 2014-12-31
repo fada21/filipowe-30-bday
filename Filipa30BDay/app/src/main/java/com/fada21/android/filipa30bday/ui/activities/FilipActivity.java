@@ -1,5 +1,6 @@
 package com.fada21.android.filipa30bday.ui.activities;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -10,6 +11,8 @@ import com.fada21.android.filipa30bday.R;
 import com.fada21.android.filipa30bday.adapters.FilipPicsPagerAdapter;
 import com.fada21.android.filipa30bday.io.IFilipCoverProvider;
 import com.fada21.android.filipa30bday.io.LocalFilipCoverProvider;
+import com.fada21.android.filipa30bday.io.helpers.DittyHelper;
+import com.fada21.android.filipa30bday.io.helpers.DittyStaticHelper;
 import com.fada21.android.filipa30bday.ui.view.ZoomOutPageTransformer;
 
 
@@ -18,6 +21,8 @@ public class FilipActivity extends ActionBarActivity {
     private FilipPicsPagerAdapter pagerAdapter;
 
     private ViewPager viewPager;
+    private Drawable dittyIconDrawable;
+    private DittyHelper dittyHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +45,16 @@ public class FilipActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_filip, menu);
-        return true;
+        MenuItem showDitty = menu.findItem(R.id.action_toggle_ditty);
+        dittyIconDrawable = showDitty.getIcon();
+        dittyHelper = new DittyHelper(this, dittyIconDrawable);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        dittyHelper.setShowDittyIconLevel();
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -49,6 +63,10 @@ public class FilipActivity extends ActionBarActivity {
             case R.id.action_share:
                 return true;
             case R.id.action_full_screen:
+                return true;
+            case R.id.action_toggle_ditty:
+                dittyHelper.toggleShowDitty();
+                dittyHelper.setShowDittyIconLevel();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

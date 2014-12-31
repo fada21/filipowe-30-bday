@@ -3,20 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".FilipActivity">
     <item
+        android:id="@+id/action_toggle_ditty"
+        android:icon="@drawable/ic_action_show_ditty_toggle"
+        android:orderInCategory="10"
+        android:title="@string/action_show_ditty_on"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/action_share"
         android:icon="@drawable/ic_action_share"
+        android:orderInCategory="20"
         android:title="@string/action_share"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_full_screen"
         android:icon="@drawable/ic_action_fullscreen"
+        android:orderInCategory="30"
         android:title="@string/action_full_screen"
         android:visible="false"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/action_toggle_ditty"
-        android:icon="@drawable/ic_action_show_ditty_toggle"
-        android:title="@string/action_show_ditty_on"
-        android:visible="false"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
 </menu>

@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.fada21.android.filipa30bday.FilipApp;
 import com.fada21.android.filipa30bday.R;
+import com.fada21.android.filipa30bday.io.helpers.DittyStaticHelper;
 import com.fada21.android.filipa30bday.model.FilipCover;
 import com.squareup.picasso.Callback;
 
@@ -69,7 +70,7 @@ public class FilipCoverFragment extends Fragment {
         FilipCover filipCover = getFilipCover(savedInstanceState);
 
         String ditty = filipCover.getDitty();
-        if (!TextUtils.isEmpty(ditty)) {
+        if (DittyStaticHelper.doShowDitties(getActivity()) && !TextUtils.isEmpty(ditty)) {
             tvDitty.setVisibility(View.VISIBLE);
             tvDitty.setText(Html.fromHtml(ditty));
         } else {
