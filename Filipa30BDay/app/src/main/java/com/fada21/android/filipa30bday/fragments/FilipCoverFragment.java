@@ -22,6 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.fada21.android.filipa30bday.FilipApp;
@@ -47,6 +48,7 @@ public class FilipCoverFragment extends Fragment {
 
     private volatile boolean detached;
     private Context ctx;
+
     private FilipCover filipCover;
 
     private volatile boolean filipCoverAuthorReady;
@@ -57,6 +59,8 @@ public class FilipCoverFragment extends Fragment {
     ImageView img;
     @InjectView(R.id.text_filip_cover_author)
     TextView tvFilipCoverAuthor;
+    @InjectView(R.id.scroll_filip_cover_ditty)
+    ScrollView scrollDitty;
 
     public static FilipCoverFragment newInstance(FilipCover filipCover) {
         FilipCoverFragment fragment = new FilipCoverFragment();
@@ -105,21 +109,21 @@ public class FilipCoverFragment extends Fragment {
         return filipCover;
     }
 
-    private void setupDitty(boolean dittyToBeShown) { // TODO add animation
+    private void setupDitty(boolean dittyToBeShown) {
         if (!detached) {
             String ditty = filipCover.getDitty();
             if (!TextUtils.isEmpty(ditty)) {
                 tvDitty.setText(Html.fromHtml(ditty));
                 if (dittyToBeShown) {
-                    tvDitty.setVisibility(View.VISIBLE);
+                    scrollDitty.setVisibility(View.VISIBLE);
                     tvDitty.setOnClickListener(v -> {
                         if (!detached) EventBus.getDefault().post(new EventShowDittyToggle());
                     });
                 } else {
-                    tvDitty.setVisibility(View.GONE);
+                    scrollDitty.setVisibility(View.GONE);
                 }
             } else {
-                tvDitty.setVisibility(View.GONE);
+                scrollDitty.setVisibility(View.GONE);
             }
         }
     }
@@ -154,14 +158,14 @@ public class FilipCoverFragment extends Fragment {
                                 set.playTogether(colorAnimationForText, colorAnimationForApla);
                                 set.start();
                             } else {
-                                tvDitty.setTextColor(palette.getLightVibrantColor(android.R.color.white));
-                                tvFilipCoverAuthor.setTextColor(palette.getLightVibrantColor(android.R.color.white));
+                                tvDitty.setTextColor(palette.getLightVibrantColor(R.color.textForCovers));
+                                tvFilipCoverAuthor.setTextColor(palette.getLightVibrantColor(R.color.textForCovers));
                             }
                         } else {
                             context = null;
                         }
                     });
-                    getActivity().runOnUiThread(() -> setupAuthor()); // TODO just set colors
+                    getActivity().runOnUiThread(() -> setupAuthor());
                 } else {
                     context = null;
                 }
@@ -169,8 +173,8 @@ public class FilipCoverFragment extends Fragment {
 
             @TargetApi(Build.VERSION_CODES.HONEYCOMB)
             private ValueAnimator getValueAnimatorForText(Palette palette) {
-                Integer colorFromText = context.getResources().getColor(android.R.color.white);
-                Integer colorToText = palette.getLightVibrantColor(android.R.color.white);
+                Integer colorFromText = context.getResources().getColor(R.color.textForCovers);
+                Integer colorToText = palette.getLightVibrantColor(R.color.textForCovers);
                 ValueAnimator colorTextAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFromText, colorToText);
                 colorTextAnimation.addUpdateListener(animator -> {
                     tvDitty.setTextColor((Integer) animator.getAnimatedValue());
