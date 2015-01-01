@@ -3,14 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:padding="@dimen/pager_page_padding"
     tools:context="ui.activities.FilipActivity">
-
 
     <ImageView
         android:id="@+id/img_filip_cover"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/pager_page_padding"
         android:scaleType="center"
         android:src="@drawable/ic_no_img" />
 
@@ -19,7 +18,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="false"
-        android:padding="@dimen/pager_page_padding"
+        android:paddingLeft="@dimen/pager_page_padding"
+        android:paddingRight="@dimen/pager_page_padding"
+        android:paddingTop="@dimen/pager_page_padding"
         android:scrollbars="none">
 
         <TextView
@@ -46,14 +47,10 @@ Tak działa nasz Filipek - rewolwerowiec" />
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:layout_margin="@dimen/pager_page_margin"
-        android:background="@drawable/bg_ditty"
-        android:paddingBottom="@dimen/author_vert_padding"
-        android:paddingLeft="@dimen/author_horiz_padding"
-        android:paddingRight="@dimen/author_horiz_padding"
-        android:paddingTop="@dimen/author_vert_padding"
+        android:layout_marginBottom="2dp"
+        android:layout_marginRight="8dp"
         android:textColor="@android:color/white"
-        android:visibility="gone"
+        android:visibility="visible"
         tools:text="by Kasia" />
 
 </FrameLayout>

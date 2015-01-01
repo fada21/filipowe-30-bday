@@ -159,7 +159,6 @@ public class FilipCoverFragment extends Fragment {
                                 set.start();
                             } else {
                                 tvDitty.setTextColor(palette.getLightVibrantColor(R.color.textForCovers));
-                                tvFilipCoverAuthor.setTextColor(palette.getLightVibrantColor(R.color.textForCovers));
                             }
                         } else {
                             context = null;
@@ -178,7 +177,6 @@ public class FilipCoverFragment extends Fragment {
                 ValueAnimator colorTextAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFromText, colorToText);
                 colorTextAnimation.addUpdateListener(animator -> {
                     tvDitty.setTextColor((Integer) animator.getAnimatedValue());
-                    tvFilipCoverAuthor.setTextColor((Integer) animator.getAnimatedValue());
                 });
                 return colorTextAnimation;
             }
@@ -191,7 +189,6 @@ public class FilipCoverFragment extends Fragment {
                 ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFromBg, colorToBg);
                 colorAnimation.addUpdateListener(animator -> {
                     tvDitty.getBackground().setColorFilter(new PorterDuffColorFilter((Integer) animator.getAnimatedValue(), PorterDuff.Mode.DST_OVER));
-                    tvFilipCoverAuthor.getBackground().setColorFilter(new PorterDuffColorFilter((Integer) animator.getAnimatedValue(), PorterDuff.Mode.DST_OVER));
                 });
                 return colorAnimation;
             }

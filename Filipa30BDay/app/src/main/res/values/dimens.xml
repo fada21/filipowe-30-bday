@@ -9,7 +9,4 @@
 
     <dimen name="ditty_shape_thickness">3dp</dimen>
     <dimen name="ditty_padding">16dp</dimen>
-
-    <dimen name="author_horiz_padding">16dp</dimen>
-    <dimen name="author_vert_padding">8dp</dimen>
 </resources>
