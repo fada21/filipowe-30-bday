@@ -6,5 +6,7 @@
     <color name="colorPrimaryDark">#311605</color>
     <color name="windowBackground">#E69967</color>
 
+    <color name="splashBg">#000000</color>
+
     <color name="textForCovers">#FFCAA8</color>
 </resources>

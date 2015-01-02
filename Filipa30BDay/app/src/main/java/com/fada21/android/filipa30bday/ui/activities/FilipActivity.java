@@ -2,6 +2,7 @@ package com.fada21.android.filipa30bday.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
@@ -18,6 +19,7 @@ import com.fada21.android.filipa30bday.io.LocalFilipCoverProvider;
 import com.fada21.android.filipa30bday.io.helpers.DittyHelper;
 import com.fada21.android.filipa30bday.model.FilipCover;
 import com.fada21.android.filipa30bday.ui.view.ZoomOutPageTransformer;
+import com.fada21.android.filipa30bday.utils.FilipCoverAppConsts;
 
 import org.apache.http.protocol.HTTP;
 
@@ -39,6 +41,8 @@ public class FilipActivity extends ActionBarActivity {
         setContentView(R.layout.ac_main);
         ButterKnife.inject(this);
 
+        checkIfFirstStartup();
+
         pagerAdapter = new FilipPicsPagerAdapter(getSupportFragmentManager());
         IFilipCoverProvider provider = LocalFilipCoverProvider.createProvider(this);
         pagerAdapter.setData(provider.getFilipCoverList());
@@ -49,6 +53,13 @@ public class FilipActivity extends ActionBarActivity {
         //viewPager.setOffscreenPageLimit(2);
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         viewPager.setAdapter(pagerAdapter);
+    }
+
+    private void checkIfFirstStartup() {
+        boolean isFirst = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(FilipCoverAppConsts.FIRST_STARTUP, true);
+        if (isFirst) {
+            startActivity(new Intent(FilipActivity.this, FilipSplashActivity.class));
+        }
     }
 
     @Override
