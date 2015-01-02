@@ -45,8 +45,8 @@ public class FilipActivity extends ActionBarActivity {
 
         //final float pagerPageMargin = getResources().getDimension(R.dimen.pager_page_margin);
         //viewPager.setPageMargin((int) (pagerPageMargin * -1f));
-        viewPager.setClipChildren(false);
-        viewPager.setOffscreenPageLimit(2);
+        //viewPager.setClipChildren(false);
+        //viewPager.setOffscreenPageLimit(2);
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         viewPager.setAdapter(pagerAdapter);
     }
