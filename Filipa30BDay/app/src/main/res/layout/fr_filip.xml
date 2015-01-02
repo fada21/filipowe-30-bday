@@ -54,7 +54,7 @@ Tak działa nasz Filipek - rewolwerowiec" />
         android:layout_marginBottom="2dp"
         android:layout_marginRight="8dp"
         android:textColor="@android:color/white"
-        android:visibility="visible"
+        android:visibility="gone"
         tools:text="by Kasia" />
 
 </FrameLayout>
