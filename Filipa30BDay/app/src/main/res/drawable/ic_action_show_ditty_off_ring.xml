@@ -6,7 +6,7 @@
     android:useLevel="false">
     <solid android:color="@color/colorPrimaryDark" />
     <size
-        android:width="32dp"
-        android:height="32dp" />
+        android:width="30dp"
+        android:height="30dp" />
 </shape>
 

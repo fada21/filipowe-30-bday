@@ -47,17 +47,17 @@
 {"id":10,
     "title":"Lofe Acfually",
     "author":"Ola",
-    "ditty":"Na lotnisku, o północy i w południe<br/>Miłość wita, miłość ludzi wita cudnie<br/>Choć Filip poleciał, to my pamiętamy<br/>Jaki był niegdyś przystojny i kochany.<br/>",
+    "ditty":"Na lotnisku, o północy i w południe<br/>Miłość wita, miłość ludzi wita cudnie<br/>Choć Filip poleciał, to my pamiętamy<br/>Jaki był niegdyś przystojny i kochany.",
     "url":"https://raw.githubusercontent.com/fada21/filipowe-30-bday/master/FilipoweCovery/LoveActually.png"},
 {"id":11,
     "title":"Neuroshima F",
     "author":"Łukasz",
-    "ditty":"Kto w życiu swym choć raz nie zagrał w grę<br/>Neuroshima F, ten wnet zagubi się<br/>W rzeczywistości wojen i armii zbrojeń<br/>Gdzie przewodzi Filip dowódca, maszyn pogromca<br/>Do walki z nim staniemy albo wszyscy poginiemy!<br/>",
+    "ditty":"Kto w życiu swym choć raz nie zagrał w grę<br/>Neuroshima F, ten wnet zagubi się<br/>W rzeczywistości wojen i armii zbrojeń<br/>Gdzie przewodzi Filip dowódca, maszyn pogromca<br/>Do walki z nim staniemy albo wszyscy poginiemy!",
     "url":"https://raw.githubusercontent.com/fada21/filipowe-30-bday/master/FilipoweCovery/neuroshima%20F.png"},
 {"id":12,
     "title":"Jak rozpętałem F-tą wojnę światową",
     "author":"Weronika",
-    "ditty":"Zbiegi przypadków, okruchy faktów<br/>Szczypta głupoty i mamy kłopoty.<br/>Szeregowiec na wojnie, choć brzmi dostojnie<br/>Tarapatów się ima, nic go nie powstrzyma.<br/>Bohaterem tu Filip, dzielny i szybki<br/>On nam wszystkim dostarcza rozrywki.<br/>",
+    "ditty":"Zbiegi przypadków, okruchy faktów<br/>Szczypta głupoty i mamy kłopoty.<br/>Szeregowiec na wojnie, choć brzmi dostojnie<br/>Tarapatów się ima, nic go nie powstrzyma.<br/>Bohaterem tu Filip, dzielny i szybki<br/>On nam wszystkim dostarcza rozrywki.",
     "url":"https://raw.githubusercontent.com/fada21/filipowe-30-bday/master/FilipoweCovery/Jak%20rozpetalem%20II%20wojne.png"},
 {"id":13,
     "title":"Fillip",
@@ -108,6 +108,11 @@
     "title":"Brave Filip",
     "author":"Paweł",
     "ditty":"",
-    "url":"https://raw.githubusercontent.com/fada21/filipowe-30-bday/master/FilipoweCovery/BraveFilip.jpg"}
+    "url":"https://raw.githubusercontent.com/fada21/filipowe-30-bday/master/FilipoweCovery/BraveFilip.jpg"},
+{"id":23,
+    "title":"SkyFil",
+    "author":"Karolek",
+    "ditty":"",
+    "url":"https://raw.githubusercontent.com/fada21/filipowe-30-bday/master/FilipoweCovery/skyfall-3a.png"}
 ]
 }

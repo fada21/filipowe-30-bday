@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/pager_page_padding"
+        android:layout_gravity="center"
         android:scaleType="center"
         android:src="@drawable/ic_no_img" />
 
