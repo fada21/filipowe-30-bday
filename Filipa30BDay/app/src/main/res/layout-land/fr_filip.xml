@@ -8,12 +8,12 @@
     tools:context="ui.activities.FilipActivity">
 
     <FrameLayout
+        android:id="@+id/container_filip_cover_ditty"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1">
 
         <ScrollView
-            android:id="@+id/scroll_filip_cover_ditty"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="false"

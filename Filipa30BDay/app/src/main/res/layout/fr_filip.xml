@@ -9,13 +9,13 @@
         android:id="@+id/img_filip_cover"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/pager_page_padding"
         android:layout_gravity="center"
+        android:layout_margin="@dimen/pager_page_padding"
         android:scaleType="center"
         android:src="@drawable/ic_no_img" />
 
     <ScrollView
-        android:id="@+id/scroll_filip_cover_ditty"
+        android:id="@+id/container_filip_cover_ditty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="false"
@@ -31,10 +31,10 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/bg_ditty"
             android:gravity="start"
+            android:paddingBottom="@dimen/ditty_padding_vertical"
             android:paddingLeft="@dimen/ditty_padding"
             android:paddingRight="@dimen/ditty_padding"
             android:paddingTop="@dimen/ditty_padding_vertical"
-            android:paddingBottom="@dimen/ditty_padding_vertical"
             android:textColor="@android:color/white"
             android:textStyle="italic"
             tools:text="Predatory i terminatory nie interesują mnie

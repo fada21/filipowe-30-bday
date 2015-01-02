@@ -22,7 +22,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.fada21.android.filipa30bday.FilipApp;
@@ -59,8 +58,8 @@ public class FilipCoverFragment extends Fragment {
     ImageView img;
     @InjectView(R.id.text_filip_cover_author)
     TextView tvFilipCoverAuthor;
-    @InjectView(R.id.scroll_filip_cover_ditty)
-    ScrollView scrollDitty;
+    @InjectView(R.id.container_filip_cover_ditty)
+    View dittyContainer;
 
     public static FilipCoverFragment newInstance(FilipCover filipCover) {
         FilipCoverFragment fragment = new FilipCoverFragment();
@@ -86,6 +85,7 @@ public class FilipCoverFragment extends Fragment {
         boolean doShowDitties = DittyStaticHelper.doShowDitties(ctx);
         setupDitty(doShowDitties);
         setFilipCoverAuthorVisibility(doShowDitties);
+
 
         return rootView;
     }
@@ -115,15 +115,15 @@ public class FilipCoverFragment extends Fragment {
             if (!TextUtils.isEmpty(ditty)) {
                 tvDitty.setText(Html.fromHtml(ditty));
                 if (dittyToBeShown) {
-                    scrollDitty.setVisibility(View.VISIBLE);
+                    dittyContainer.setVisibility(View.VISIBLE);
                     tvDitty.setOnClickListener(v -> {
                         if (!detached) EventBus.getDefault().post(new EventShowDittyToggle());
                     });
                 } else {
-                    scrollDitty.setVisibility(View.GONE);
+                    dittyContainer.setVisibility(View.GONE);
                 }
             } else {
-                scrollDitty.setVisibility(View.GONE);
+                dittyContainer.setVisibility(View.GONE);
             }
         }
     }
