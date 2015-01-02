@@ -14,47 +14,53 @@
         android:scaleType="center"
         android:src="@drawable/ic_no_img" />
 
-    <ScrollView
+    <FrameLayout
         android:id="@+id/container_filip_cover_ditty"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="false"
-        android:paddingLeft="@dimen/pager_page_padding"
-        android:paddingRight="@dimen/pager_page_padding"
-        android:paddingTop="@dimen/pager_page_padding"
-        android:scrollbars="none">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/text_filip_cover_ditty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/bg_ditty"
-            android:gravity="start"
-            android:paddingBottom="@dimen/ditty_padding_vertical"
-            android:paddingLeft="@dimen/ditty_padding"
-            android:paddingRight="@dimen/ditty_padding"
-            android:paddingTop="@dimen/ditty_padding_vertical"
-            android:textColor="@android:color/white"
-            android:textStyle="italic"
-            tools:text="Predatory i terminatory nie interesują mnie
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="false"
+            android:paddingLeft="@dimen/pager_page_padding"
+            android:paddingRight="@dimen/pager_page_padding"
+            android:paddingTop="@dimen/pager_page_padding"
+            android:scrollbars="none">
+
+            <TextView
+                android:id="@+id/text_filip_cover_ditty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_ditty"
+                android:gravity="start"
+                android:paddingBottom="@dimen/ditty_padding_vertical"
+                android:paddingLeft="@dimen/ditty_padding"
+                android:paddingRight="@dimen/ditty_padding"
+                android:paddingTop="@dimen/ditty_padding_vertical"
+                android:textColor="@android:color/white"
+                android:textStyle="italic"
+                tools:text="Predatory i terminatory nie interesują mnie
 Od kiedy na świecie pojawił się
 Łowca androidów lepszy niż we śnie.
 Roboty powybija jak piankę się ubija -
 Gładko, szybko i bez owiec
 Tak działa nasz Filipek - rewolwerowiec" />
 
-    </ScrollView>
+        </ScrollView>
 
-    <TextView
-        android:id="@+id/text_filip_cover_author"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_marginBottom="2dp"
-        android:layout_marginRight="8dp"
-        android:textColor="@android:color/white"
-        android:visibility="gone"
-        tools:text="by Kasia" />
+        <TextView
+            android:id="@+id/text_filip_cover_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="2dp"
+            android:layout_marginRight="8dp"
+            android:textColor="@android:color/white"
+            android:visibility="gone"
+            tools:text="by Kasia" />
+
+    </FrameLayout>
 
 </FrameLayout>
