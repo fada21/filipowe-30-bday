@@ -9,4 +9,6 @@
 
     <dimen name="ditty_shape_thickness">3dp</dimen>
     <dimen name="ditty_padding">16dp</dimen>
+    <dimen name="ditty_padding_vertical">8dp</dimen>
+
 </resources>

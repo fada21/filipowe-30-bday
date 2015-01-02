@@ -30,7 +30,10 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/bg_ditty"
             android:gravity="start"
-            android:padding="@dimen/ditty_padding"
+            android:paddingLeft="@dimen/ditty_padding"
+            android:paddingRight="@dimen/ditty_padding"
+            android:paddingTop="@dimen/ditty_padding_vertical"
+            android:paddingBottom="@dimen/ditty_padding_vertical"
             android:textColor="@android:color/white"
             android:textStyle="italic"
             tools:text="Predatory i terminatory nie interesują mnie

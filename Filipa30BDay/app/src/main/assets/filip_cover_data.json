@@ -62,7 +62,7 @@
 {"id":13,
     "title":"Fillip",
     "author":"Kasia",
-    "ditty":"Groźne pustkowia i gadatliwe smoki<br/>Ponure zamczyska i mroczne uroki<br/>Niestraszne są gdy<br/>Przebierzemy Filipa za rosłego hobbita<br/>Włamywacza sprytnego jak nigdy.<br/>On pierścionek Saurona na palec założy<br/>i Uruk-hai go nie przyuważy<br/>Złoto Ereboru zostanie ocalone<br/>i Thorin na głowę znów włoży koronę<br/>Poeta pieśń o Filipie stworzy<br/>i pieśń ta uniesie się aż do przestworzy.<br/>",
+    "ditty":"Groźne pustkowia i gadatliwe smoki<br/>Ponure zamczyska i mroczne uroki<br/>Niestraszne są gdy<br/>Przebierzemy Filipa za rosłego hobbita<br/>Włamywacza sprytnego jak nigdy.<br/>On pierścionek Saurona na palec założy<br/>i Uruk-hai go nie przyuważy<br/>Złoto Ereboru zostanie ocalone<br/>i Thorin na głowę znów włoży koronę<br/>Poeta pieśń o Filipie stworzy<br/>i pieśń ta uniesie się aż do przestworzy.",
     "url":"https://raw.githubusercontent.com/fada21/filipowe-30-bday/master/FilipoweCovery/hobbit_plakat.png"},
 {"id":14,
     "title":"Odyseja filipowa 2015",
@@ -102,7 +102,12 @@
 {"id":21,
     "title":"Kac Fegas",
     "author":"Adaśko",
-    "ditty":"Gdy na dzień przed swoim ślubem<br/>Swych przyjaciół padniesz łupem<br/>Bądź mądrzejszy, dragów nie bierz<br/>Bo na ślub spóźniony będziesz.<br/>A gdy tak się jednak zdarzy,<br/>Nie panikuj, muszkę załóż.<br/>Nikt spóźnialskich już nie karze<br/>Oprócz żony tuż nazajutrz.<br/>",
-    "url":"https://raw.githubusercontent.com/fada21/filipowe-30-bday/master/FilipoweCovery/kac.jpg"}
+    "ditty":"Gdy na dzień przed swoim ślubem<br/>Swych przyjaciół padniesz łupem<br/>Bądź mądrzejszy, dragów nie bierz<br/>Bo na ślub spóźniony będziesz.<br/>A gdy tak się jednak zdarzy,<br/>Nie panikuj, muszkę załóż.<br/>Nikt spóźnialskich już nie karze<br/>Oprócz żony tuż nazajutrz.",
+    "url":"https://raw.githubusercontent.com/fada21/filipowe-30-bday/master/FilipoweCovery/kac.jpg"},
+{"id":22,
+    "title":"Brave Filip",
+    "author":"Paweł",
+    "ditty":"",
+    "url":"https://raw.githubusercontent.com/fada21/filipowe-30-bday/master/FilipoweCovery/BraveFilip.jpg"}
 ]
 }

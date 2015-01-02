@@ -44,7 +44,7 @@ import lombok.NoArgsConstructor;
 public class FilipCoverFragment extends Fragment {
 
     private static final String ARG_FILIP_COVER = "FILIP_COVER";
-    private static final int ALPHA_FILTER = 0xCCFFFFFF;
+    private static final int ALPHA_FILTER = 0xE0FFFFFF;
 
     private volatile boolean detached;
     private Context ctx;
@@ -188,7 +188,7 @@ public class FilipCoverFragment extends Fragment {
                 colorToBg &= ALPHA_FILTER;
                 ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFromBg, colorToBg);
                 colorAnimation.addUpdateListener(animator -> {
-                    tvDitty.getBackground().setColorFilter(new PorterDuffColorFilter((Integer) animator.getAnimatedValue(), PorterDuff.Mode.DST_IN));
+                    tvDitty.getBackground().setColorFilter(new PorterDuffColorFilter((Integer) animator.getAnimatedValue(), PorterDuff.Mode.SRC_IN));
                 });
                 return colorAnimation;
             }
