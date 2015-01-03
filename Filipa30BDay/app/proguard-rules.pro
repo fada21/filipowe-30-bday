@@ -21,3 +21,28 @@
 
 # okhttp picasso
 -dontwarn com.squareup.okhttp.**
+
+# butterknife
+-dontwarn butterknife.internal.**
+-keep class **$$ViewInjector { *; }
+-keepnames class * { @butterknife.InjectView *;}
+
+# jackson
+-dontwarn com.fasterxml.jackson.**
+-keepattributes EnclosingMethod,Signature
+-keep public class com.fada21.android.filipa30bday.** {
+  public void set*(***);
+  public *** get*();
+}
+-keepnames class com.fasterxml.jackson.** { *; }
+
+# eventbus
+-keepclassmembers class ** {
+    public void onEvent*(**);
+}
+
+# Parceler
+-keep interface org.parceler.Parcel
+-keep @org.parceler.Parcel class * { *; }
+-keep class **$$Parcelable { *; }
+-keep class org.parceler.Parceler$$Parcels

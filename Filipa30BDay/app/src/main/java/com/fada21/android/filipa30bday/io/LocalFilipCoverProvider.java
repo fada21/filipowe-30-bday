@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.fada21.android.filipa30bday.model.FilipCover;
+import com.fada21.android.filipa30bday.model.JSONResources;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,8 +12,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-
-import lombok.Data;
 
 public class LocalFilipCoverProvider implements IFilipCoverProvider {
 
@@ -33,8 +32,8 @@ public class LocalFilipCoverProvider implements IFilipCoverProvider {
         try {
             InputStream inputStream = ctx.getAssets().open(JSON_FILE);
             ObjectMapper mapper = new ObjectMapper();
-            JSONRes jsonRes = mapper.readValue(inputStream, JSONRes.class);
-            List<FilipCover> resources = jsonRes.getResources();
+            JSONResources jsonResources = mapper.readValue(inputStream, JSONResources.class);
+            List<FilipCover> resources = jsonResources.getResources();
             return resources;
         } catch (JsonMappingException e) {
             Log.e(getClass().getSimpleName(), "Error mapping json file", e);
@@ -46,8 +45,4 @@ public class LocalFilipCoverProvider implements IFilipCoverProvider {
         return null;
     }
 
-    @Data
-    private static class JSONRes {
-        List<FilipCover> resources;
-    }
 }
