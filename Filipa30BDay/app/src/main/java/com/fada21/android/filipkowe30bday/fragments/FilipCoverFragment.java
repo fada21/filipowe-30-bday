@@ -1,4 +1,4 @@
-package com.fada21.android.filipka30bday.fragments;
+package com.fada21.android.filipkowe30bday.fragments;
 
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
@@ -24,12 +24,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.fada21.android.filipka30bday.FilipApp;
-import com.fada21.android.filipka30bday.R;
-import com.fada21.android.filipka30bday.events.EventShowDittyOnToggled;
-import com.fada21.android.filipka30bday.events.EventShowDittyToggle;
-import com.fada21.android.filipka30bday.io.helpers.DittyStaticHelper;
-import com.fada21.android.filipka30bday.model.FilipCover;
+import com.fada21.android.filipkowe30bday.FilipApp;
+import com.fada21.android.filipkowe30bday.R;
+import com.fada21.android.filipkowe30bday.events.EventShowDittyOnToggled;
+import com.fada21.android.filipkowe30bday.events.EventShowDittyToggle;
+import com.fada21.android.filipkowe30bday.io.helpers.DittyStaticHelper;
+import com.fada21.android.filipkowe30bday.model.FilipCover;
 import com.squareup.picasso.Callback;
 
 import org.parceler.Parcels;

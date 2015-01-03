@@ -1,6 +1,6 @@
-package com.fada21.android.filipka30bday.io;
+package com.fada21.android.filipkowe30bday.io;
 
-import com.fada21.android.filipka30bday.model.FilipCover;
+import com.fada21.android.filipkowe30bday.model.FilipCover;
 
 import java.util.ArrayList;
 import java.util.List;

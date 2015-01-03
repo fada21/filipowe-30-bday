@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fada21.android.filipka30bday">
+    package="com.fada21.android.filipkowe30bday">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".FilipApp"
+        android:name="com.fada21.android.filipkowe30bday.FilipApp"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activities.FilipActivity"
+            android:name="com.fada21.android.filipkowe30bday.ui.activities.FilipActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activities.FilipSplashActivity"
+            android:name="com.fada21.android.filipkowe30bday.ui.activities.FilipSplashActivity"
             android:noHistory="true" />
     </application>
 

@@ -1,4 +1,4 @@
-package com.fada21.android.filipka30bday.ui.activities;
+package com.fada21.android.filipkowe30bday.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,16 +10,16 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.fada21.android.filipka30bday.R;
-import com.fada21.android.filipka30bday.adapters.FilipPicsPagerAdapter;
-import com.fada21.android.filipka30bday.events.EventShowDittyOnToggled;
-import com.fada21.android.filipka30bday.events.EventShowDittyToggle;
-import com.fada21.android.filipka30bday.io.IFilipCoverProvider;
-import com.fada21.android.filipka30bday.io.LocalFilipCoverProvider;
-import com.fada21.android.filipka30bday.io.helpers.DittyHelper;
-import com.fada21.android.filipka30bday.model.FilipCover;
-import com.fada21.android.filipka30bday.ui.view.ZoomOutPageTransformer;
-import com.fada21.android.filipka30bday.utils.FilipCoverAppConsts;
+import com.fada21.android.filipkowe30bday.R;
+import com.fada21.android.filipkowe30bday.adapters.FilipPicsPagerAdapter;
+import com.fada21.android.filipkowe30bday.events.EventShowDittyOnToggled;
+import com.fada21.android.filipkowe30bday.events.EventShowDittyToggle;
+import com.fada21.android.filipkowe30bday.io.IFilipCoverProvider;
+import com.fada21.android.filipkowe30bday.io.LocalFilipCoverProvider;
+import com.fada21.android.filipkowe30bday.io.helpers.DittyHelper;
+import com.fada21.android.filipkowe30bday.model.FilipCover;
+import com.fada21.android.filipkowe30bday.ui.view.ZoomOutPageTransformer;
+import com.fada21.android.filipkowe30bday.utils.FilipCoverAppConsts;
 
 import org.apache.http.protocol.HTTP;
 
@@ -56,7 +56,7 @@ public class FilipActivity extends ActionBarActivity {
     }
 
     private void checkIfFirstStartup() {
-        boolean isFirst = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(FilipCoverAppConsts.FIRST_STARTUP, true);
+        boolean isFirst = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(FilipCoverAppConsts.FIRST_STARTUP, false); // don't show this
         if (isFirst) {
             startActivity(new Intent(FilipActivity.this, FilipSplashActivity.class));
         }

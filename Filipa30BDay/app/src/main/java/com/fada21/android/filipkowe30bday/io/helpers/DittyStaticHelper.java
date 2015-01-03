@@ -1,14 +1,14 @@
-package com.fada21.android.filipka30bday.io.helpers;
+package com.fada21.android.filipkowe30bday.io.helpers;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
 
-import com.fada21.android.filipka30bday.utils.FilipCoverAppConsts;
+import com.fada21.android.filipkowe30bday.utils.FilipCoverAppConsts;
 
 public class DittyStaticHelper {
 
     public static boolean doShowDitties(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(FilipCoverAppConsts.SHOW_DITTY, false);
+        return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(FilipCoverAppConsts.SHOW_DITTY, true);
     }
 
     public static void setShowDitties(Context context, boolean doShowDitties) {

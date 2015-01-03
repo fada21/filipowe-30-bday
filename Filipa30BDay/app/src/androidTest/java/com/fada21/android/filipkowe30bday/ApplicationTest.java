@@ -1,4 +1,4 @@
-package com.fada21.android.filipka30bday;
+package com.fada21.android.filipkowe30bday;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,14 +1,14 @@
-package com.fada21.android.filipka30bday.adapters;
+package com.fada21.android.filipkowe30bday.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.fada21.android.filipka30bday.FilipApp;
-import com.fada21.android.filipka30bday.R;
-import com.fada21.android.filipka30bday.fragments.FilipCoverFragment;
-import com.fada21.android.filipka30bday.model.FilipCover;
-import com.fada21.android.filipka30bday.utils.CommonUtils;
+import com.fada21.android.filipkowe30bday.FilipApp;
+import com.fada21.android.filipkowe30bday.R;
+import com.fada21.android.filipkowe30bday.fragments.FilipCoverFragment;
+import com.fada21.android.filipkowe30bday.model.FilipCover;
+import com.fada21.android.filipkowe30bday.utils.CommonUtils;
 
 import java.util.List;
 

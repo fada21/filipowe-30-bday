@@ -1,10 +1,10 @@
-package com.fada21.android.filipka30bday.io;
+package com.fada21.android.filipkowe30bday.io;
 
 import android.content.Context;
 import android.util.Log;
 
-import com.fada21.android.filipka30bday.model.FilipCover;
-import com.fada21.android.filipka30bday.model.JSONResources;
+import com.fada21.android.filipkowe30bday.model.FilipCover;
+import com.fada21.android.filipkowe30bday.model.JSONResources;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,4 +1,4 @@
-package com.fada21.android.filipka30bday.model;
+package com.fada21.android.filipkowe30bday.model;
 
 import org.parceler.Parcel;
 
