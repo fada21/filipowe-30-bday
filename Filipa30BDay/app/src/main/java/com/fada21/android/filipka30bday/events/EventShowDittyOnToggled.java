@@ -1,6 +1,5 @@
-package com.fada21.android.filipa30bday.events;
+package com.fada21.android.filipka30bday.events;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

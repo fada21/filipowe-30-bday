@@ -1,4 +1,4 @@
-package com.fada21.android.filipa30bday.utils;
+package com.fada21.android.filipka30bday.utils;
 
 import java.util.Collection;
 

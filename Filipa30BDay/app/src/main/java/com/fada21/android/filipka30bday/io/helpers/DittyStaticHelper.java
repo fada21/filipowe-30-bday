@@ -1,9 +1,9 @@
-package com.fada21.android.filipa30bday.io.helpers;
+package com.fada21.android.filipka30bday.io.helpers;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
 
-import com.fada21.android.filipa30bday.utils.FilipCoverAppConsts;
+import com.fada21.android.filipka30bday.utils.FilipCoverAppConsts;
 
 public class DittyStaticHelper {
 

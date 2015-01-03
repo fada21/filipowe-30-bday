@@ -1,4 +1,4 @@
-package com.fada21.android.filipa30bday.model;
+package com.fada21.android.filipka30bday.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
