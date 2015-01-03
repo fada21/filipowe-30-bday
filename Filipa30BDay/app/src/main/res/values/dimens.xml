@@ -11,4 +11,6 @@
     <dimen name="ditty_padding">16dp</dimen>
     <dimen name="ditty_padding_vertical">8dp</dimen>
 
+    <dimen name="progress_size">64dp</dimen>
+
 </resources>

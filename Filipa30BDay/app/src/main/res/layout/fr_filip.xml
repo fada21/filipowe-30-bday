@@ -11,8 +11,15 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_margin="@dimen/pager_page_padding"
-        android:scaleType="center"
-        android:src="@drawable/ic_no_img" />
+        android:scaleType="center" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="@dimen/progress_size"
+        android:layout_height="@dimen/progress_size"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:visibility="gone" />
 
     <FrameLayout
         android:id="@+id/container_filip_cover_ditty"

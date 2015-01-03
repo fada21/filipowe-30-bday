@@ -22,6 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.fada21.android.filipkowe30bday.FilipApp;
@@ -60,6 +61,8 @@ public class FilipCoverFragment extends Fragment {
     TextView tvFilipCoverAuthor;
     @InjectView(R.id.container_filip_cover_ditty)
     View dittyContainer;
+    @InjectView(R.id.progress)
+    ProgressBar progress;
 
     public static FilipCoverFragment newInstance(FilipCover filipCover) {
         FilipCoverFragment fragment = new FilipCoverFragment();
@@ -85,7 +88,6 @@ public class FilipCoverFragment extends Fragment {
         boolean doShowDitties = DittyStaticHelper.doShowDitties(ctx);
         setupDitty(doShowDitties);
         setFilipCoverAuthorVisibility(doShowDitties);
-
 
         return rootView;
     }
@@ -131,11 +133,16 @@ public class FilipCoverFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        loadCover();
+    }
+
+    public void loadCover() {
+        progress.setVisibility(View.VISIBLE);
         FilipApp.getInstance().getPicasso().load(filipCover.getUrl()).noPlaceholder().error(R.drawable.ic_no_img).fit().centerInside().into(img, getFilipCoverCallback());
     }
 
     private Callback getFilipCoverCallback() {
-        Callback.EmptyCallback emptyCallback = new Callback.EmptyCallback() {
+        Callback callback = new Callback() {
 
             Context context;
 
@@ -165,6 +172,7 @@ public class FilipCoverFragment extends Fragment {
                         }
                     });
                     getActivity().runOnUiThread(() -> setupAuthor());
+                    progress.setVisibility(View.GONE);
                 } else {
                     context = null;
                 }
@@ -192,8 +200,15 @@ public class FilipCoverFragment extends Fragment {
                 });
                 return colorAnimation;
             }
+
+
+            @Override
+            public void onError() {
+                if (!detached)
+                    progress.setVisibility(View.GONE);
+            }
         };
-        return emptyCallback;
+        return callback;
     }
 
     private void setupAuthor() {

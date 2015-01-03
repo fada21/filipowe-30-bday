@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:animateLayoutChanges="true"
+    android:gravity="center"
     android:orientation="horizontal"
 
     android:weightSum="2"
@@ -59,8 +59,16 @@ Tak działa nasz Filipek - rewolwerowiec" />
             android:layout_gravity="center"
             android:layout_margin="@dimen/pager_page_padding"
             android:layout_weight="1"
-            android:scaleType="center"
-            android:src="@drawable/ic_no_img" />
+            android:scaleType="center" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="@dimen/progress_size"
+            android:layout_height="@dimen/progress_size"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:visibility="gone" />
+
 
         <TextView
             android:id="@+id/text_filip_cover_author"
