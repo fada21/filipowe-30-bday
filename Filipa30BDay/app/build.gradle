@@ -8,8 +8,8 @@ android {
         applicationId "com.fada21.android.filipkowe30bday"
         minSdkVersion 10
         targetSdkVersion 21
-        versionCode 6
-        versionName "0.9.6"
+        versionCode 7
+        versionName "0.9.7"
     }
     signingConfigs {
         release {

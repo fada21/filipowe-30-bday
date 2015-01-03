@@ -56,7 +56,7 @@ public class FilipActivity extends ActionBarActivity {
     }
 
     private void checkIfFirstStartup() {
-        boolean isFirst = PreferenceManager.getDefaultSharedPreferences(this).getBoolean(FilipCoverAppConsts.FIRST_STARTUP, false); // don't show this
+        boolean isFirst = false && PreferenceManager.getDefaultSharedPreferences(this).getBoolean(FilipCoverAppConsts.FIRST_STARTUP, false); // TODO uncomment when ready, not slash at the moment
         if (isFirst) {
             startActivity(new Intent(FilipActivity.this, FilipSplashActivity.class));
         }
