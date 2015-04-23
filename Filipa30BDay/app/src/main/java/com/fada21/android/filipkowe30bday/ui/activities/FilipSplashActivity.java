@@ -3,6 +3,7 @@ package com.fada21.android.filipkowe30bday.ui.activities;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import com.fada21.android.filipkowe30bday.FilipApp;
@@ -12,7 +13,7 @@ import com.fada21.android.filipkowe30bday.utils.FilipCoverAppConsts;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class FilipSplashActivity extends ActionBarActivity {
+public class FilipSplashActivity extends AppCompatActivity {
 
     @InjectView(R.id.img_filip_cover)
     ImageView img;

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -28,7 +29,7 @@ import butterknife.InjectView;
 import de.greenrobot.event.EventBus;
 
 
-public class FilipActivity extends ActionBarActivity {
+public class FilipActivity extends AppCompatActivity {
 
     private FilipPicsPagerAdapter pagerAdapter;
     @InjectView(R.id.pager)
